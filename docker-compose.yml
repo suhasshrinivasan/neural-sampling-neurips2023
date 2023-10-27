@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  dev:
+    build:
+      context: .
+    image: nsc
+    env_file: .env
+    volumes:
+      - .:/src/project
+      - ${data_path:-/var/sinz-shared/}:/data/
+    entrypoint: /bin/bash -c "sleep infinity"
+    container_name: nsc_dev
